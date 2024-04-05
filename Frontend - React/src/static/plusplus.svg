@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <path d="M480,224H288V32c0-17.673-14.327-32-32-32s-32,14.327-32,32v192H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h192v192   c0,17.673,14.327,32,32,32s32-14.327,32-32V288h192c17.673,0,32-14.327,32-32S497.673,224,480,224z"/>
+  </g>
+  <rect x="348.041" y="402.001" width="152.712" height="25.494" style="stroke-width: 0px; stroke: rgb(0, 0, 0); paint-order: fill; stroke-miterlimit: 1; stroke-dashoffset: 1px;"/>
+  <rect x="920.624" y="844.689" width="158.632" height="24.543" style="stroke-width: 0px; stroke: rgb(0, 0, 0); paint-order: fill; stroke-miterlimit: 1; stroke-dashoffset: 1px; transform-box: fill-box; transform-origin: 50% 50%;" transform="matrix(0, 1, -1, 0, -578.269913, -442.92112)"/>
+</svg>
