@@ -1,10 +1,9 @@
-from . import aria2_file_modes
-Single_Download = aria2_file_modes.Single_Download
-Multi_Download = aria2_file_modes.Multi_Download
+from .aria2_file_modes import Single_Download, Multi_Download
+from .aria2_xmlrpc import Aria2_XMLRPC
 
-from . import aria2_xmlrpc
+
 def create_download_manager(aria2_xmlrpc_server_url):
-    return Download_Manager(aria2_xmlrpc.Aria2_XMLRPC(aria2_xmlrpc_server_url))
+    return Download_Manager(Aria2_XMLRPC(aria2_xmlrpc_server_url))
     
 
 class Download_Manager:
