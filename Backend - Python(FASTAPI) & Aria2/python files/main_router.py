@@ -27,6 +27,9 @@ def create_download(data: Create_Download_Data):
     if not myValidators.isValidWindowsFolderName(folder) and folder != "":
         return {'error': 'invalid path'}
     
+    if not myValidators.isValidTorrentURL(url):
+        return {"error": 'invalid url'}
+    
     full_path = os.path.join(download_base_path, folder)
     file_info = download_manager.create_new_download(url, full_path).get_info()
     return {'status': 'ok', 'file_info': json.dumps(file_info)}
@@ -40,6 +43,10 @@ def create_new_multiple_downloads(data: Create_Multiple_Downloads_Data):
 
     if not myValidators.pathIsValid(full_path):
         return {'error': 'invalid path'}
+    # making sure all urls are torrent files
+    checks = [ myValidators.isValidTorrentURL(url) for url in urls ]
+    if(not all(checks)):
+        return {"error": 'invalid urls'}
 
     response = [
         i.get_info()
