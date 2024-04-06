@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import NyaasiSearchAndDownload from "./NyaasiSearchAndDownload";
+import NyaasiSearchAndDownload from "../new_download_components/NyaasiSearchAndDownload";
+import MultipleDownloads from "../new_download_components/MultipleDownloads";
+import GoBack from "../helper_components/GoBack"
 
 const display = (data)=>{
     if(typeof data === "string"){
@@ -20,7 +22,10 @@ const isValidWindowsFolderName = helper.validators.isValidWindowsFolderName
 
 function AddNewDownloadPopUp(props) {
     const [popUpVis, setPopUpVis] = props.popUpVisState
+
+    // Download Methods Visibilty States
     const [nyaasiVis, setNyaasiVis] = useState(false)
+    const [multipleDlVis, setMultipleDlVis] = useState(false)
 
     // Add onclicks
     const addOneURLOnClick = async ()=>{
@@ -46,36 +51,10 @@ function AddNewDownloadPopUp(props) {
         display(response)
     }
 
-    const addMultiURLsOnClick = async () =>{
-        const torrentURLs = prompt("Torrent URLs (comma seperated)")
-        const folderName = prompt("Folder Name")
-
-        if(folderName === null || torrentURLs === null){
-            displayError("null params")
-            return
-        }   
-
-        if(folderName !== "" & !isValidWindowsFolderName(folderName)){
-            displayError("invalid folder name")
-            return
-        }
-
-        const splittedTorrentURLs = torrentURLs.split(",")
-        for(var i = 0; i !== splittedTorrentURLs.length; i++){
-            if(splittedTorrentURLs[i] === ""){
-                displayError("empty url")
-                return
-            }
-    
-            if(!isTorrentFileURL(splittedTorrentURLs[i])){
-                displayError("invalid url")
-                return
-            }
-        }
-
-        const response = await addMultipleNewDownloads(splittedTorrentURLs, folderName)
-        display(response)
+    const addMultiURLsOnClick = ()=>{
+        setMultipleDlVis(true)
     }
+
     const addNyaasiOnClick = ()=>{
         setNyaasiVis(true)
     }
@@ -85,10 +64,19 @@ function AddNewDownloadPopUp(props) {
             nyaasiVisState = {[nyaasiVis, setNyaasiVis]}
         />
     }
+    else if(multipleDlVis){
+        return <MultipleDownloads
+            multipleDlVisState = {[multipleDlVis, setMultipleDlVis]}
+        />
+    }
 
     return (
         <div>
-            <button onClick={()=>setPopUpVis(false)}>x</button>
+            <GoBack 
+                callThis = {
+                    ()=>{setPopUpVis(false)}
+                }
+            />
             
             <div className="download-methods-container">
                 <div onClick={addOneURLOnClick} className="download-method-choice">

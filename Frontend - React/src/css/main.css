@@ -4,6 +4,15 @@
     justify-content: center;
 }
 
+/* add multi downloads */
+.multiple-urls-input{
+    border: 1px solid black;
+    width: 70%;
+}
+.pre-input{
+    width: 17%;
+}
+
 /* Add Download PopUp */
 .download-methods-container{
     display: flex;
