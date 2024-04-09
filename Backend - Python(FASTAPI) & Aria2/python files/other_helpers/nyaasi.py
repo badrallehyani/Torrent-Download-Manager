@@ -124,4 +124,7 @@ class Nyaasi:
 
 
 if __name__ == "__main__":
-    input('\n\n'.join([str(file) for file in Nyaasi.search(input('keyword: '))]))
+    keyword = input('keyword: ')
+    results = Nyaasi.search(keyword)
+    results_string = [str(i) for i in results]
+    print('\n\n'.join(results_string))

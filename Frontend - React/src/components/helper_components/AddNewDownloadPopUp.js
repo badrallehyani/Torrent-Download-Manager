@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+
 import NyaasiSearchAndDownload from "../new_download_components/NyaasiSearchAndDownload";
 import MultipleDownloads from "../new_download_components/MultipleDownloads";
+import _1337xSearchAndDownload from "../new_download_components/_1337xSearchAndDownload";
+
 import GoBack from "../helper_components/GoBack"
 
 const display = (data)=>{
@@ -26,6 +29,7 @@ function AddNewDownloadPopUp(props) {
     // Download Methods Visibilty States
     const [nyaasiVis, setNyaasiVis] = useState(false)
     const [multipleDlVis, setMultipleDlVis] = useState(false)
+    const [_1337xVis, set1337xVis] = useState(false)
 
     // Add onclicks
     const addOneURLOnClick = async ()=>{
@@ -58,6 +62,9 @@ function AddNewDownloadPopUp(props) {
     const addNyaasiOnClick = ()=>{
         setNyaasiVis(true)
     }
+    const add1337xOnClick = ()=>{
+        set1337xVis(true)
+    }
 
     if(nyaasiVis){
         return <NyaasiSearchAndDownload
@@ -67,6 +74,11 @@ function AddNewDownloadPopUp(props) {
     else if(multipleDlVis){
         return <MultipleDownloads
             multipleDlVisState = {[multipleDlVis, setMultipleDlVis]}
+        />
+    }
+    else if(_1337xVis){
+        return <_1337xSearchAndDownload
+            _1337xVisState = {[_1337xVis, set1337xVis]}
         />
     }
 
@@ -87,6 +99,9 @@ function AddNewDownloadPopUp(props) {
                 </div>
                 <div onClick={addNyaasiOnClick} className="download-method-choice">
                     <span>Nyaa.si Keyword</span>
+                </div>
+                <div onClick={add1337xOnClick} className="download-method-choice">
+                    <span>1337x Keyword</span>
                 </div>
             </div>
 

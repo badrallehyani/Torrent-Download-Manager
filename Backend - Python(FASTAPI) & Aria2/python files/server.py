@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from main_router import router as main_router
 from nyaasi_router import router as nyaasi_router
+from _1337x_router import router as _1337x_router
 
 # Dependencies 
 valid_tokens = ['x']
@@ -22,6 +23,7 @@ app.add_middleware(
 
 app.include_router(main_router)
 app.include_router(nyaasi_router)
+app.include_router(_1337x_router)
 
 if __name__ == "__main__":
     import uvicorn

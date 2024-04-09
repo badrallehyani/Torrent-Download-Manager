@@ -186,6 +186,27 @@ const getNyaasiFiles = async (keyword) => {
     }
 }
 
+// 1337x reqs
+const get1337xFiles = async (keyword) => {
+    // Sends a search query to backend server. backend server 
+    // scrapes 1337x for results
+    const url = baseURL + "/get_1337x_files"
+
+    const request = createRequest(url)
+    .setMethod("POST")
+    .setBody({
+        "keyword": keyword
+    })
+
+    try{
+        const response = await request.send()
+        const responseJSON = await response.json()
+        return getSimpleResponse(response, responseJSON)
+    }
+    catch (error){
+        throw error
+    }
+}
 
 // VALIDATORS
 function getURLFileExtension(url) {
@@ -250,6 +271,7 @@ module.exports = {
         addMultipleNewDownloads: addMultipleNewDownloads,
         sendSkipFile: sendSkipFile,
         getNyaasiFiles: getNyaasiFiles,
+        get1337xFiles: get1337xFiles
     },
 
     validators: {

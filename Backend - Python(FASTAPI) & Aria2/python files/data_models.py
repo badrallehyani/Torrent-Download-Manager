@@ -27,3 +27,4 @@ class Skip_Data(BaseModel):
 
 class Get_Nyaasi_Files(BaseModel):
     keyword: str
+Get_1337x_Files = Get_Nyaasi_Files
