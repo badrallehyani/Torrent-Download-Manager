@@ -13,6 +13,7 @@ The backend consitsts of two parts
 The project's main purpose is to download torrent files (locally) and view download progress. The directory in which the downloads will be downloaded can be changed from "Backend - Python(FASTAPI) & Aria2/python files/conf.json"
 ## How To Run
 To run this thing properly, you need to do 3 things
+- create a `conf.json` file just like `conf.json.example`
 - run server.py in backend
 - run start_rpc_server.cmd in backend (simply, start aria2 xmlrpc)
 - ```npm start``` the frontend (react)

@@ -1,0 +1,4 @@
+{
+	"aria2_server_url": "http://localhost:6800/rpc",
+	"download_base_path": "Absolute\\path\\to\\folder"
+}

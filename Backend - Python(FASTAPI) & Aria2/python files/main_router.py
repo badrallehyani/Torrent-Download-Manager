@@ -7,8 +7,11 @@ import validators as myValidators
 
 from aria2_helpers.torrent_download_manager import create_download_manager
 
-with open('conf.json', 'r') as f:
-  conf = json.load(f)
+try:
+  with open('conf.json', 'r') as f:
+    conf = json.load(f)
+except FileExistsError:
+  print('conf.json file was not found. create one like conf.json.example')
 
 aria2_server_url = conf.get('aria2_server_url')
 download_base_path = conf.get('download_base_path')
