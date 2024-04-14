@@ -10,22 +10,17 @@ def getFileNameFromURL(url, headers = None):
         return None
     
     content_disposition_header = headers.get("Content-Disposition")
+    
     if content_disposition_header is None:
         return None
     
-    # findall ->    'filename="[SubsPlease] Solo Leveling - 02 (1080p) [07415D5D].mkv.torrent"'
-    # split ->      "[SubsPlease] Solo Leveling - 02 (1080p) [07415D5D].mkv.torrent"
-    # replace ->    [SubsPlease] Solo Leveling - 02 (1080p) [07415D5D].mkv.torrent
-    # sometimes (in 1337x) the files are called names such as
-    # filename=8A1A8290280823030F3BDBA6B3397198C8C59EFC.torrent
-    # there's no quotes, so we add "?" to keep in mind the possibiliy
-    # that quotes may not exist
-    file_name = re.findall("filename=\"?.*\"?", content_disposition_header)[0]\
-                    .split("=")[1]\
-                    .replace('"', '')
+    filename_pattern = r'filename=["\']?([^"\';]+)["\']?'
+    filename = re.findall(filename_pattern, header)
     
-    return file_name
-
+    if filename:
+        return filename[0]
+    
+    return None
 
 def isValidWindowsFolderName(folder_name):
     reserved_names = ['CON', 'PRN', 'AUX',
