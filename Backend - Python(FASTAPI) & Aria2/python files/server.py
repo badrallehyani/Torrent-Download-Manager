@@ -12,7 +12,7 @@ CONF_DIR = os.path.join( os.path.dirname(__file__), 'conf.json' )
 try:
   with open(CONF_DIR, 'r') as f:
     conf = json.load(f)
-except FileExistsError:
+except FileNotFoundError:
   print('conf.json file was not found. create one like conf.json.example')
 
 HOST = conf.get('python_server_host')
