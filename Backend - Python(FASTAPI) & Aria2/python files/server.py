@@ -13,7 +13,7 @@ try:
   with open(CONF_DIR, 'r') as f:
     conf = json.load(f)
 except FileNotFoundError:
-  print('conf.json file was not found. create one like conf.json.example')
+  raise Exception('conf.json file was not found. create one like conf.json.example.')
 
 HOST = conf.get('python_server_host')
 PORT = int( conf.get('python_server_port') )

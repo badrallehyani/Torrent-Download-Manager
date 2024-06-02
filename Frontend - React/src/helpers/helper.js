@@ -4,7 +4,7 @@ const validator = require("validator")
 
 //  REQUESTS
 
-const baseURL = "http://10.0.0.1:8000"
+const baseURL = "http://localhost:8000"
 class Custom_Request{
     constructor(url){
         this.url = url

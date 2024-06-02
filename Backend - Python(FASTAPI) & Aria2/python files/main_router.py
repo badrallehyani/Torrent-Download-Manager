@@ -13,7 +13,7 @@ try:
   with open(CONF_DIR, 'r') as f:
     conf = json.load(f)
 except FileNotFoundError:
-  print('conf.json file was not found. create one like conf.json.example')
+  raise Exception('conf.json file was not found. create one like conf.json.example.')
 
 aria2_server_url = conf.get('aria2_server_url')
 download_base_path = conf.get('download_base_path')
