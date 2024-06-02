@@ -7,8 +7,10 @@ import validators as myValidators
 
 from aria2_helpers.torrent_download_manager import create_download_manager
 
+CONF_DIR = os.path.join( os.path.dirname(__file__), 'conf.json' )
+
 try:
-  with open('conf.json', 'r') as f:
+  with open(CONF_DIR, 'r') as f:
     conf = json.load(f)
 except FileExistsError:
   print('conf.json file was not found. create one like conf.json.example')

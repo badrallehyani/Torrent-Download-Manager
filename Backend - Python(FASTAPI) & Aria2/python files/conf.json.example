@@ -1,4 +1,9 @@
 {
 	"aria2_server_url": "http://localhost:6800/rpc",
-	"download_base_path": "Absolute\\path\\to\\folder"
+	"react_server_url": "http://localhost:3000",
+
+	"python_server_host": "localhost",
+	"python_server_port": "8000"
+
+	"download_base_path": "Absolute/path/to/folder"
 }

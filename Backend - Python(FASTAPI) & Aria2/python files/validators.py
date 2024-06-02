@@ -15,7 +15,7 @@ def getFileNameFromURL(url, headers = None):
         return None
     
     filename_pattern = r'filename=["\']?([^"\';]+)["\']?'
-    filename = re.findall(filename_pattern, header)
+    filename = re.findall(filename_pattern, content_disposition_header)
     
     if filename:
         return filename[0]

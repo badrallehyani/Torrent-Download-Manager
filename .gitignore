@@ -1,0 +1,8 @@
+*.pyc
+
+*.pid
+*.out
+*.sh
+
+__pycache__
+conf.json
