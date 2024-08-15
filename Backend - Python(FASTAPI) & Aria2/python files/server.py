@@ -1,6 +1,6 @@
 import os, json
 
-from fastapi import FastAPI, Depends, Cookie, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from main_router import router as main_router
@@ -22,13 +22,7 @@ REACT_SERVER = conf.get('react_server_url')
 if not all([HOST, PORT, REACT_SERVER]):
 	raise 'check your conf.json. something is missing.'
 
-# Dependencies
-valid_tokens = ['x']
-async def verify_token(token = Cookie()):
-    if token not in valid_tokens:
-        raise HTTPException(status_code=400, detail="Token cookie invalid")
-
-app = FastAPI(dependencies = [ Depends(verify_token) ])
+app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware, #middleware_class

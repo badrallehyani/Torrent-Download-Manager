@@ -6,7 +6,6 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 // Importing Routes
 import Home from "./routes/Home"
-import Login from "./routes/Login";
 
 
 function App() {
@@ -14,8 +13,7 @@ function App() {
         <BrowserRouter>
             <div className="App">
                 <Routes>
-                    <Route path= "/" exact Component={Login}/>
-                    <Route path = "/home" exact Component = {Home}/>
+                    <Route path= "/" exact Component={Home}/>
                 </Routes>
             </div>
         </BrowserRouter>

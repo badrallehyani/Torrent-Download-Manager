@@ -16,13 +16,6 @@ function ErrorBox({reason}) {
                     JSON.stringify(reason)
             }</span>
 
-            {
-                reason === "Token cookie invalid"?
-                <Link style={{display: "block"}} to={"/"}>Set Token</Link>
-                :
-                ""
-            }
-
         </div>
         
     );
